@@ -9,7 +9,7 @@
     "php-ds/php-ds": "1.2.0"
   },
   "require-dev": {
-    "concrete5/core": "8.5.4",
+    "concrete5/core": "8.5.7",
     "friendsofphp/php-cs-fixer": "2.18.0",
     "php": ">=7",
     "phpunit/phpunit": "7.5.20"
