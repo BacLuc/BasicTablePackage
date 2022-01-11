@@ -38,7 +38,7 @@
             </div>
             <div class="col-xs-6 col-sm-4">
                 <a href="<?php echo $this->action($cancelFormAction->getAction()); ?>">
-                    <button type="button" class="btn ccm-input-submit ccm-button btn-block">
+                    <button type="button" class="btn ccm-input-submit ccm-button btn-light">
                         <?php echo t('cancel'); ?>
                     </button>
                 </a>

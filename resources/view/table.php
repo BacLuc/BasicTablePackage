@@ -6,7 +6,7 @@ $maxPageNum = floor($count / $pageSize);
         <?php foreach ($actions as $action) { ?>
             <?php /** @var \BaclucC5Crud\View\ViewActionDefinition $action */ ?>
             <a href="<?php echo $this->action($action->getAction()); ?>">
-                <button type="submit" class="btn inlinebtn actionbutton <?php echo $action->getButtonClass(); ?>"
+                <button type="submit" class="btn inlinebtn actionbutton btn-light <?php echo $action->getButtonClass(); ?>"
                         aria-label="<?php echo t($action->getAriaLabel()); ?>"
                         title="<?php echo t($action->getTitle()); ?>">
                     <i class="fa <?php echo $action->getIconClass(); ?>" aria-hidden="true"> </i>
@@ -35,7 +35,7 @@ $maxPageNum = floor($count / $pageSize);
                         <?php foreach ($rowactions as $rowaction) { ?>
                             <a href="<?php echo $this->action($rowaction->getAction()).'/'.$row->getId(); ?>">
                                 <button type="submit"
-                                        class="btn inlinebtn actionbutton <?php echo $rowaction->getButtonClass(); ?>"
+                                        class="btn inlinebtn actionbutton btn-light <?php echo $rowaction->getButtonClass(); ?>"
                                         aria-label="<?php echo t($rowaction->getAriaLabel()); ?>"
                                         title="<?php echo t($rowaction->getTitle()); ?>">
                                     <i class="fa <?php echo $rowaction->getIconClass(); ?>" aria-hidden="true"> </i>
@@ -110,7 +110,7 @@ $maxPageNum = floor($count / $pageSize);
                     </div>
                     <div class="col-xs-12 col-md-2">
                         <button type="submit"
-                                class="btn inlinebtn?>"
+                                class="btn inlinebtn btn-light>"
                                 aria-label="<?php echo t('Go'); ?>"
                                 title="<?php echo t('Go'); ?>">
                             <?php echo t('Go'); ?>
