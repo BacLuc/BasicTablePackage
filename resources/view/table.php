@@ -56,39 +56,44 @@ $maxPageNum = floor($count / $pageSize);
         <div class="col-xs-12 col-sm-6">
             <ul class="pagination">
                 <li class="page-item <?php echo 0 == $currentPage ? 'disabled' : ''; ?>">
-                    <a href="<?php echo $currentURL."?pageSize={$pageSize}&currentPage=0"; ?>"
-                       aria-label="<?php echo t('First'); ?>">
+                    <a class="page-link"
+                       href="<?php echo $currentURL."?pageSize={$pageSize}&currentPage=0"; ?>"
+                       aria-label="<?php echo t('First'); ?>"
+                    >
                         <span aria-hidden="true">«</span>
                     </a>
                 </li>
                 <li class="page-item <?php echo 0 == $currentPage ? 'disabled' : ''; ?>">
-                    <a href="<?php echo $currentURL."?pageSize={$pageSize}&currentPage=".($currentPage - 1); ?>"
-                       aria-label="<?php echo t('Previous'); ?>">
+                    <a class="page-link"
+                       href="<?php echo $currentURL."?pageSize={$pageSize}&currentPage=".($currentPage - 1); ?>"
+                       aria-label="<?php echo t('Previous'); ?>"
+                    >
                         <span aria-hidden="true">&lt;</span>
                     </a>
                 </li>
                 <?php for ($i = max(0, $currentPage - 3); $i <= min(($currentPage + 3), $maxPageNum); ++$i) { ?>
 
-                    <li class="page-item <?php echo $currentPage == $i ? 'disabled' : ''; ?>"><a
-                                class="page-link <?php echo $i == $currentPage ? 'active' : ''; ?>"
-                                href="<?php echo $currentURL.
-                                          "?pageSize={$pageSize}&currentPage={$i}"; ?>">
-                            <?php echo $i + 1; ?></a>
+                    <li class="page-item <?php echo $currentPage == $i ? 'disabled' : ''; ?>">
+                        <a class="page-link <?php echo $i == $currentPage ? 'active' : ''; ?>"
+                           href="<?php echo $currentURL. "?pageSize={$pageSize}&currentPage={$i}"; ?>"
+                        >
+                            <?php echo $i + 1; ?>
+                        </a>
                     </li>
                 <?php } ?>
                 <li class="page-item <?php echo $currentPage == $maxPageNum ? 'disabled' : ''; ?>">
-                    <a href="<?php echo $currentURL.
-                                 "?pageSize={$pageSize}&currentPage=".
-                                 ($currentPage +
-                                  1); ?>"
-                       aria-label="<?php echo t('Next'); ?>">
+                    <a class="page-link"
+                       href="<?php echo $currentURL. "?pageSize={$pageSize}&currentPage=". ($currentPage + 1); ?>"
+                       aria-label="<?php echo t('Next'); ?>"
+                    >
                         <span aria-hidden="true">&gt;</span>
                     </a>
                 </li>
                 <li class="page-item<?php echo $currentPage == $maxPageNum ? 'disabled' : ''; ?>">
-                    <a href="<?php echo $currentURL.
-                                 "?pageSize={$pageSize}&currentPage={$maxPageNum}"; ?>"
-                       aria-label="<?php echo t('Last'); ?>">
+                    <a class="page-link"
+                       href="<?php echo $currentURL. "?pageSize={$pageSize}&currentPage={$maxPageNum}"; ?>"
+                       aria-label="<?php echo t('Last'); ?>"
+                    >
                         <span aria-hidden="true">»</span>
                     </a>
                 </li>
