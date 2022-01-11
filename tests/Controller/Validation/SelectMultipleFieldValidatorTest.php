@@ -13,7 +13,7 @@ class SelectMultipleFieldValidatorTest extends TestCase {
     private $valueSupplier;
     private $dropdownFieldValidator;
 
-    public function setUp() {
+    public function setUp(): void {
         $this->valueSupplier = $this->createMock(ValueSupplier::class);
         $this->dropdownFieldValidator = new SelectMultipleFieldValidator('test', $this->valueSupplier);
     }

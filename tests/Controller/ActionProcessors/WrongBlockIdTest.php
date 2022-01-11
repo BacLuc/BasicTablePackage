@@ -24,7 +24,7 @@ class WrongBlockIdTest extends TestCase {
      * @throws \DI\DependencyException
      * @throws \DI\NotFoundException
      */
-    protected function setUp() {
+    protected function setUp(): void {
         /** @var EntityManager $entityManager */
         $entityManager = $this->createMock(EntityManager::class);
         /** @var Container $container */

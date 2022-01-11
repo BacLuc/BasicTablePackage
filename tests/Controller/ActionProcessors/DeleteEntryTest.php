@@ -19,7 +19,7 @@ class DeleteEntryTest extends TestCase {
      */
     private $crudController;
 
-    protected function setUp() {
+    protected function setUp(): void {
         /** @var EntityManager $entityManager */
         $entityManager = $this->createMock(EntityManager::class);
         $container = DIContainerFactory::createContainer($entityManager, ExampleEntity::class);

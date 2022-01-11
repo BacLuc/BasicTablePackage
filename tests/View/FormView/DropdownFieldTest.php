@@ -31,7 +31,7 @@ class DropdownFieldTest extends TestCase {
     private $dropdownFieldCallable;
     private $entity;
 
-    protected function setUp() {
+    protected function setUp(): void {
         $this->dropdownValueTransformerMock = $this->createMock(ValueTransformer::class);
         $this->identityValueTransformerMock = $this->createMock(ValueTransformer::class);
         $this->valueSupplier = $this->createMock(ValueSupplier::class);

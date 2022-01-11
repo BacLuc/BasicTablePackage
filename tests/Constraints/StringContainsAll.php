@@ -29,8 +29,6 @@ class StringContainsAll extends Constraint {
     private $ignoreCase;
 
     public function __construct(array $strings, bool $ignoreCase = false) {
-        parent::__construct();
-
         $this->strings = $strings;
         $this->ignoreCase = $ignoreCase;
     }

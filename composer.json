@@ -4,15 +4,15 @@
   "description": "A concrete5 package to provide crud functionality",
   "license": "MIT",
   "require": {
-    "php-di/php-di": "6.0.11",
-    "tightenco/collect": "6.0.4",
-    "php-ds/php-ds": "1.2.0"
+    "php-di/php-di": "6.3.5",
+    "tightenco/collect": "8.78.0",
+    "php-ds/php-ds": "v1.4.0"
   },
   "require-dev": {
-    "concrete5/core": "8.5.4",
+    "concrete5/core": "9.0.1",
     "friendsofphp/php-cs-fixer": "2.18.0",
-    "php": ">=7",
-    "phpunit/phpunit": "7.5.20"
+    "php": ">=8.0",
+    "phpunit/phpunit": "9.5.11"
   },
   "autoload": {
     "psr-4": {
@@ -31,5 +31,10 @@
     "cs-check": "vendor/bin/php-cs-fixer fix --dry-run",
     "cs-fix": "vendor/bin/php-cs-fixer fix",
     "test": "vendor/bin/phpunit -d memory_limit=-1 tests"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
   }
 }
