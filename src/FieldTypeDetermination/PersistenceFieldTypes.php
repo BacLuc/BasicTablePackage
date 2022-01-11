@@ -5,13 +5,13 @@ namespace BaclucC5Crud\FieldTypeDetermination;
 use ReflectionClass;
 
 class PersistenceFieldTypes {
-    const INTEGER = 'integer';
-    const STRING = 'string';
-    const DATE = 'date';
-    const DATETIME = 'datetime';
-    const TEXT = 'text';
-    const MANY_TO_ONE = 'manyToOne';
-    const MANY_TO_MANY = 'manyToMany';
+    public const INTEGER = 'integer';
+    public const STRING = 'string';
+    public const DATE = 'date';
+    public const DATETIME = 'datetime';
+    public const TEXT = 'text';
+    public const MANY_TO_ONE = 'manyToOne';
+    public const MANY_TO_MANY = 'manyToMany';
 
     /**
      * @throws \ReflectionException

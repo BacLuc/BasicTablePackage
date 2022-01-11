@@ -7,10 +7,10 @@ use BaclucC5Crud\Lib\ValueSupplierTrait;
 class ExampleEntityDropdownValueSupplier implements ValueSupplier {
     use ValueSupplierTrait;
 
-    const KEY_5 = 'five';
-    const KEY_6 = 'six';
-    const VALUE_5 = 'dropdownvalue5';
-    const DROPDOWN_VALUE_6 = 'dropdownvalue6';
+    public const KEY_5 = 'five';
+    public const KEY_6 = 'six';
+    public const VALUE_5 = 'dropdownvalue5';
+    public const DROPDOWN_VALUE_6 = 'dropdownvalue6';
 
     public function __construct() {
         $this->initialize([

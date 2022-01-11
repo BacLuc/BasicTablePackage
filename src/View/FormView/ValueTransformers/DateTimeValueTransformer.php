@@ -5,7 +5,7 @@ namespace BaclucC5Crud\View\FormView\ValueTransformers;
 use DateTime;
 
 class DateTimeValueTransformer implements ValueTransformer {
-    const DATETIME_FORMAT = 'Y-m-d H:i';
+    public const DATETIME_FORMAT = 'Y-m-d H:i';
 
     /**
      * {@inheritDoc}

@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityManager;
 use Punic\Exception;
 
 class Controller extends Package {
-    const PACKAGE_HANDLE = 'bacluc_c5_crud';
+    public const PACKAGE_HANDLE = 'bacluc_c5_crud';
     protected $pkgHandle = self::PACKAGE_HANDLE;
     protected $appVersionRequired = '5.7.4';
     protected $pkgVersion = '0.0.1';

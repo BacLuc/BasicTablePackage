@@ -19,7 +19,7 @@ use BaclucC5Crud\View\FormType;
 use BaclucC5Crud\View\SubmitFormViewAction;
 
 class PostForm implements ActionProcessor {
-    const FORM_VIEW = 'view/form';
+    public const FORM_VIEW = 'view/form';
     /**
      * @var Validator
      */

@@ -14,7 +14,7 @@ use BaclucC5Crud\TableViewService;
 use BaclucC5Crud\View\FormView\IntegerField;
 
 class ShowTable implements ActionProcessor {
-    const TABLE_VIEW = 'view/table';
+    public const TABLE_VIEW = 'view/table';
     /**
      * @var TableViewService
      */

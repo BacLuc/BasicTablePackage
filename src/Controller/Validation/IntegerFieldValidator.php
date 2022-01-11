@@ -3,7 +3,7 @@
 namespace BaclucC5Crud\Controller\Validation;
 
 class IntegerFieldValidator implements FieldValidator {
-    const NOINTERRORMSG = 'This is not a valid number';
+    public const NOINTERRORMSG = 'This is not a valid number';
 
     /**
      * @var string

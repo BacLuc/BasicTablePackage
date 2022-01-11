@@ -12,7 +12,7 @@ use BaclucC5Crud\TableViewService;
 use BaclucC5Crud\View\TableView\Row;
 
 class ShowEntryDetails implements ActionProcessor {
-    const DETAIL_VIEW = 'view/detail';
+    public const DETAIL_VIEW = 'view/detail';
     /**
      * @var TableViewService
      */

@@ -14,10 +14,10 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 class ShowTableTest extends TestCase {
-    const TEST_1 = 'test1';
-    const TEST_2 = 'test2';
-    const TEST_3 = 'test3';
-    const TEST_4 = 'test4';
+    public const TEST_1 = 'test1';
+    public const TEST_2 = 'test2';
+    public const TEST_3 = 'test3';
+    public const TEST_4 = 'test4';
 
     private $crudController;
 

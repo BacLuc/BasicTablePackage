@@ -11,16 +11,16 @@ use BaclucC5Crud\Controller\ActionProcessors\ShowTable;
 use BaclucC5Crud\Controller\ActionProcessors\ValidateForm;
 
 class ActionRegistryFactory {
-    const BACK_TO_MAIN = 'view';
-    const SHOW_TABLE = 'show_table';
-    const ADD_NEW_ROW_FORM = 'add_new_row_form';
-    const EDIT_ROW_FORM = 'edit_row_form';
-    const POST_FORM = 'post_form';
-    const VALIDATE_FORM = 'validate_form';
-    const DELETE_ENTRY = 'delete_entry';
-    const CANCEL_FORM = 'cancel_form';
-    const SHOW_ENTRY_DETAILS = 'show_details';
-    const SHOW_ERROR = 'show_error';
+    public const BACK_TO_MAIN = 'view';
+    public const SHOW_TABLE = 'show_table';
+    public const ADD_NEW_ROW_FORM = 'add_new_row_form';
+    public const EDIT_ROW_FORM = 'edit_row_form';
+    public const POST_FORM = 'post_form';
+    public const VALIDATE_FORM = 'validate_form';
+    public const DELETE_ENTRY = 'delete_entry';
+    public const CANCEL_FORM = 'cancel_form';
+    public const SHOW_ENTRY_DETAILS = 'show_details';
+    public const SHOW_ERROR = 'show_error';
 
     /**
      * @var ActionProcessor[]

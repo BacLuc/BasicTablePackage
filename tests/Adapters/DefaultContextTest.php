@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 class DefaultContextTest extends TestCase {
-    const VAR_VALUE = 'test';
+    public const VAR_VALUE = 'test';
 
     public function testExportVariables() {
         $defaultContext = new DefaultContext();

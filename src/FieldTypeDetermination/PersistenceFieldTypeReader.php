@@ -33,7 +33,7 @@ class PersistenceFieldTypeReader {
             $annotationReader = new AnnotationReader();
             $entity = new $this->className();
             $reflectionClass = new ReflectionClass($entity);
-        } catch (\ReflectionException | AnnotationException $e) {
+        } catch (\ReflectionException|AnnotationException $e) {
             throw new \RuntimeException($e);
         }
 

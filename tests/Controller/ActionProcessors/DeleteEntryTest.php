@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 class DeleteEntryTest extends TestCase {
-    const TEST_1 = 'test_value';
+    public const TEST_1 = 'test_value';
     /**
      * @var CrudController
      */
