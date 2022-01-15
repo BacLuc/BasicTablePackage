@@ -15,7 +15,7 @@ use Exception;
 class Controller extends Package {
     public const PACKAGE_HANDLE = 'bacluc_c5_crud';
     protected $pkgHandle = self::PACKAGE_HANDLE;
-    protected $appVersionRequired = '5.7.4';
+    protected $appVersionRequired = '9.0.1';
     protected $pkgVersion = '0.0.1';
 
     public static function getEntityManagerStatic() {
