@@ -28,7 +28,7 @@ class ViewActionRegistryFactory {
                 'edit',
                 'Edit Entry',
                 'Edit Entry',
-                'fa fa-pencil'
+                'fa fa-pen'
             ),
             new ViewActionDefinition(
                 ActionRegistryFactory::DELETE_ENTRY,
