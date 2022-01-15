@@ -45,6 +45,22 @@ class PostFormTest extends TestCase {
         $this->assertThat($output, Matchers::stringContainsKeysAndValues(ExampleEntityConstants::getValues()));
     }
 
+    /**
+     * This test should not fail with php 8.
+     */
+    public function testPostFormWithEmptyStringForManyToOne() {
+        $ENTRY_1_POST = ExampleEntityConstants::ENTRY_1_POST;
+        $ENTRY_1_POST['manyToOne'] = '';
+        ob_start();
+        $this->crudController->getActionFor(ActionRegistryFactory::POST_FORM, '0')
+            ->process([], $ENTRY_1_POST)
+        ;
+        $this->crudController->getActionFor(ActionRegistryFactory::SHOW_TABLE, '0')->process([], []);
+
+        $output = ob_get_clean();
+        $this->assertThat($output, Matchers::stringContainsKeysAndValues(ExampleEntityConstants::getValues()));
+    }
+
     public function testPostFormExistingEntry() {
         $this->crudController->getActionFor(ActionRegistryFactory::POST_FORM, '0')
             ->process([], ExampleEntityConstants::ENTRY_1_POST)

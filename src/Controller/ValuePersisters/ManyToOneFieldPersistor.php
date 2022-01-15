@@ -25,6 +25,10 @@ class ManyToOneFieldPersistor implements FieldPersistor {
     public function persist($valueMap, $toEntity) {
         $values = $this->valueSupplier->getValues();
         $postvalue = $valueMap[$this->name];
-        $toEntity->{$this->name} = null !== $postvalue ? $values[$postvalue] : null;
+        if (null !== $postvalue && isset($values[$postvalue])) {
+            $toEntity->{$this->name} = $values[$postvalue];
+        } else {
+            $toEntity->{$this->name} = null;
+        }
     }
 }
