@@ -3,6 +3,7 @@
 namespace BaclucC5Crud\Controller\Validation;
 
 use function BaclucC5Crud\Lib\collect as collect;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,11 +11,10 @@ use PHPUnit\Framework\TestCase;
  */
 class DateValidatorTest extends TestCase {
     /**
-     * @dataProvider getFormats
-     *
      * @param mixed $date
      * @param mixed $isValid
      */
+    #[DataProvider('getFormats')]
     public function testDateFormats($date, $isValid) {
         $fieldName = 'test';
         $dateValidator = new DateValidator($fieldName);
@@ -22,8 +22,8 @@ class DateValidatorTest extends TestCase {
         self::assertThat($dateValidator->validate($postvalues)->isError(), $isValid ? self::isFalse() : self::isTrue());
     }
 
-    public function getFormats() {
-        return $this->describeDataSet([
+    public static function getFormats() {
+        return self::describeDataSet([
             ['1980-05-31', true],
             ['1980/05/31', true],
             ['1980.05.31', true],
@@ -77,8 +77,8 @@ class DateValidatorTest extends TestCase {
         self::assertThat($dateValidator->validate($postvalues)->isError(), $isValid ? self::isFalse() : self::isTrue());
     }
 
-    public function getRanges() {
-        return $this->describeDataSet([
+    public static function getRanges() {
+        return self::describeDataSet([
             ['01.01.1900', true],
             ['31.12.2050', true],
             ['32.12.2050', false],
@@ -88,7 +88,7 @@ class DateValidatorTest extends TestCase {
         ]);
     }
 
-    private function describeDataSet(array $data) {
+    private static function describeDataSet(array $data) {
         return collect($data)->keyBy(function ($dataRow) {
             return '['.collect($dataRow)->join(', ').']';
         });
