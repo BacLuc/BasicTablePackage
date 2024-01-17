@@ -7,6 +7,7 @@ class SimplePersistenceFieldType implements PersistenceFieldType {
      * @var string
      */
     private $type;
+
     /**
      * @var bool
      */

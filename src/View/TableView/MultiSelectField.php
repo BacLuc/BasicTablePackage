@@ -5,14 +5,16 @@ namespace BaclucC5Crud\View\TableView;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\ValueSupplier;
 use BaclucC5Crud\Entity\WithUniqueStringRepresentation;
-use function BaclucC5Crud\Lib\collect as collect;
 use Doctrine\Common\Collections\ArrayCollection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class MultiSelectField implements Field {
     /**
      * @var ArrayCollection
      */
     private $sqlValue;
+
     /**
      * @var ValueSupplier
      */
@@ -21,7 +23,7 @@ class MultiSelectField implements Field {
     /**
      * TextField constructor.
      *
-     * @param $sqlValue
+     * @param mixed $sqlValue
      */
     public function __construct($sqlValue, ValueSupplier $valueSupplier) {
         $this->sqlValue = $sqlValue;

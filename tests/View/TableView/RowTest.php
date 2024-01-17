@@ -2,8 +2,9 @@
 
 namespace BaclucC5Crud\View\TableView;
 
-use function BaclucC5Crud\Lib\collect as collect;
 use PHPUnit\Framework\TestCase;
+
+use function BaclucC5Crud\Lib\collect;
 
 /**
  * @internal

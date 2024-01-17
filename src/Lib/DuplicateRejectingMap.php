@@ -2,19 +2,15 @@
 
 namespace BaclucC5Crud\Lib;
 
-use ArrayAccess;
 use Ds\Collection;
 use Ds\Map;
 use Ds\Pair;
 use Ds\Sequence;
 use Ds\Set;
 use http\Exception\InvalidArgumentException;
-use OutOfBoundsException;
-use OutOfRangeException;
 use Stash\Exception\LogicException;
-use UnderflowException;
 
-class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collection {
+class DuplicateRejectingMap implements \IteratorAggregate, \ArrayAccess, Collection {
     /**
      * @var Map
      */
@@ -55,9 +51,6 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function clear() {
         $this->map->clear();
     }
@@ -65,7 +58,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
     /**
      * Return the first Pair from the Map.
      *
-     * @throws UnderflowException
+     * @throws \UnderflowException
      */
     public function first(): Pair {
         return $this->map->first();
@@ -74,7 +67,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
     /**
      * Return the last Pair from the Map.
      *
-     * @throws UnderflowException
+     * @throws \UnderflowException
      */
     public function last(): Pair {
         return $this->map->last();
@@ -83,7 +76,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
     /**
      * Return the pair at a specified position in the Map.
      *
-     * @throws OutOfRangeException
+     * @throws \OutOfRangeException
      */
     public function skip(int $position): Pair {
         return $this->map->skip($position);
@@ -107,14 +100,14 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      * are also present in the given map. In other words, returns a copy of the
      * current map with all keys removed that are not also in the other map.
      *
-     * @param ArrayAccess $map the other map
+     * @param \ArrayAccess $map the other map
      *
      * @return DuplicateRejectingMap A new map containing the pairs of the current instance
      *                               whose keys are also present in the given map. In other
      *                               words, returns a copy of the current map with all keys
      *                               removed that are not also in the other map.
      */
-    public function intersect(ArrayAccess $map): DuplicateRejectingMap {
+    public function intersect(\ArrayAccess $map): DuplicateRejectingMap {
         return $this->filter(function ($key) use ($map) {
             return isset($map[$key]);
         });
@@ -124,12 +117,12 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      * Returns the result of removing all keys from the current instance that
      * are present in a given map.
      *
-     * @param ArrayAccess $map the map containing the keys to exclude
+     * @param \ArrayAccess $map the map containing the keys to exclude
      *
      * @return DuplicateRejectingMap the result of removing all keys from the current instance
      *                               that are present in a given map
      */
-    public function diff(ArrayAccess $map): DuplicateRejectingMap {
+    public function diff(\ArrayAccess $map): DuplicateRejectingMap {
         return $this->filter(function ($key) use ($map) {
             return !isset($map[$key]);
         });
@@ -153,9 +146,6 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
         return null !== $this->lookupValue($value);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function count(): int {
         return count($this->pairs);
     }
@@ -168,7 +158,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      *                                true : include the value,
      *                                false: skip the value
      */
-    public function filter(callable $callback = null): DuplicateRejectingMap {
+    public function filter(?callable $callback = null): DuplicateRejectingMap {
         $filtered = new self();
 
         foreach ($this as $key => $value) {
@@ -187,19 +177,19 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      * @param mixed $key
      * @param mixed $default
      *
-     * @throws OutOfBoundsException if no default was provided and the key is
-     *                              not associated with a value
-     *
      * @return mixed the associated value or fallback default if provided
+     *
+     * @throws \OutOfBoundsException if no default was provided and the key is
+     *                               not associated with a value
      */
     public function get($key, $default = null) {
-        if (($pair = $this->lookupKey($key))) {
+        if ($pair = $this->lookupKey($key)) {
             return $pair->value;
         }
 
         // Check if a default was provided.
         if (1 === func_num_args()) {
-            throw new OutOfBoundsException();
+            throw new \OutOfBoundsException();
         }
 
         return $default;
@@ -281,10 +271,10 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      * @param mixed $key
      * @param mixed $default
      *
-     * @throws OutOfBoundsException if no default was provided and the key is
-     *                              not associated with a value
-     *
      * @return mixed the associated value or fallback default if provided
+     *
+     * @throws \OutOfBoundsException if no default was provided and the key is
+     *                               not associated with a value
      */
     public function remove($key, $default = null) {
         $this->map->remove($key, $default);
@@ -326,7 +316,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      *                        will contains all pairs between the offset and
      *                        the end of the map.
      */
-    public function slice(int $offset, int $length = null): DuplicateRejectingMap {
+    public function slice(int $offset, ?int $length = null): DuplicateRejectingMap {
         return new self($this->map->slice($offset, $length));
     }
 
@@ -337,7 +327,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      *
      * @param null|callable $comparator accepts two values to be compared
      */
-    public function sort(callable $comparator = null) {
+    public function sort(?callable $comparator = null) {
         $this->map->sort($comparator);
     }
 
@@ -348,7 +338,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
      *
      * @param null|callable $comparator accepts two keys to be compared
      */
-    public function ksort(callable $comparator = null) {
+    public function ksort(?callable $comparator = null) {
         $this->map->ksort($comparator);
     }
 
@@ -361,9 +351,6 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
         return $this->map->sum();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toArray(): array {
         return $this->map->toArray();
     }
@@ -375,60 +362,39 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
         return $this->map->values();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getIterator() {
         return $this->map->getIterator();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function offsetSet($offset, $value) {
         $this->put($offset, $value);
     }
 
     /**
-     * {@inheritdoc}
+     * @param mixed $offset
      *
-     * @throws OutOfBoundsException
+     * @throws \OutOfBoundsException
      */
     public function &offsetGet($offset) {
         return $this->map->offsetGet($offset);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function offsetUnset($offset) {
         return $this->map->offsetUnset($offset);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function offsetExists($offset) {
         return $this->map->offsetExists($offset);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function copy(): Collection {
         return new self($this->map->copy()->toArray());
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function isEmpty(): bool {
         return $this->map->isEmpty();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function jsonSerialize() {
         return $this->map->jsonSerialize();
     }
@@ -436,7 +402,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
     /**
      * Attempts to look up a key in the table.
      *
-     * @param $key
+     * @param mixed $key
      *
      * @return null|Pair
      */
@@ -447,7 +413,7 @@ class DuplicateRejectingMap implements \IteratorAggregate, ArrayAccess, Collecti
     /**
      * Attempts to look up a key in the table.
      *
-     * @param $value
+     * @param mixed $value
      *
      * @return null|Pair
      */

@@ -14,9 +14,6 @@ class DefaultActionConfiguration implements ActionConfiguration {
         $this->viewActionRegistry = $viewActionRegistry;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getActions(): array {
         return [$this->viewActionRegistry->getByName(ActionRegistryFactory::ADD_NEW_ROW_FORM)];
     }

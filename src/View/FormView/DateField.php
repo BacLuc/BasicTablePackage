@@ -7,10 +7,12 @@ class DateField implements Field {
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postname;
+
     /**
      * @var ?\DateTime
      */

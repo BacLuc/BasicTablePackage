@@ -14,9 +14,6 @@ class DefaultRowActionConfiguration implements RowActionConfiguration {
         $this->viewActionRegistry = $viewActionRegistry;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getActions(): array {
         return [
             $this->viewActionRegistry->getByName(ActionRegistryFactory::EDIT_ROW_FORM),

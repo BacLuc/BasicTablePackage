@@ -9,6 +9,7 @@ class DropdownFieldValidator implements FieldValidator {
      * @var string
      */
     private $name;
+
     /**
      * @var ValueSupplier
      */

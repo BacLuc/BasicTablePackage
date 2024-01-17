@@ -7,6 +7,7 @@ class EntityFieldOverrideBuilder {
      * @var \ReflectionClass
      */
     private $entityClass;
+
     /**
      * @var FieldTypeOverrideBuilder
      */

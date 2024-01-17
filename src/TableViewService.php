@@ -5,18 +5,20 @@ namespace BaclucC5Crud;
 use BaclucC5Crud\Controller\PaginationConfiguration;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\TableViewEntrySupplier;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\View\TableView\Field;
 use BaclucC5Crud\View\TableView\Row;
 use BaclucC5Crud\View\TableView\TableView;
 use BaclucC5Crud\View\TableView\TableViewFieldConfiguration;
 use Tightenco\Collect\Support\Collection;
 
+use function BaclucC5Crud\Lib\collect;
+
 class TableViewService {
     /**
      * @var TableViewFieldConfiguration
      */
     private $tableViewFieldConfiguration;
+
     /**
      * @var TableViewEntrySupplier
      */

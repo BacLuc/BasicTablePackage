@@ -3,14 +3,16 @@
 namespace BaclucC5Crud\Controller\ValuePersisters;
 
 use BaclucC5Crud\Entity\ValueSupplier;
-use function BaclucC5Crud\Lib\collect as collect;
 use Doctrine\Common\Collections\ArrayCollection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class ManyToManyFieldPersistor implements FieldPersistor {
     /**
      * @var string
      */
     private $name;
+
     /**
      * @var ValueSupplier
      */

@@ -7,22 +7,26 @@ use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldType;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypeReader;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypes;
 use BaclucC5Crud\FieldTypeDetermination\ReferencingPersistenceFieldType;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\View\FormView\ValueTransformers\ValueTransformerConfiguration;
+
+use function BaclucC5Crud\Lib\collect;
 
 class FormViewConfigurationFactory {
     /**
      * @var PersistenceFieldTypeReader
      */
     private $persistenceFieldTypeReader;
+
     /**
      * @var WysiwygEditorFactory
      */
     private $wysiwygEditorFactory;
+
     /**
      * @var EntityFieldOverrides
      */
     private $entityFieldOverrides;
+
     /**
      * @var ValueTransformerConfiguration
      */
@@ -49,7 +53,7 @@ class FormViewConfigurationFactory {
                         $key
                     );
                 })
-            ;
+        ;
 
         return new FormViewFieldConfiguration($fieldTypes->toArray());
     }
@@ -60,7 +64,7 @@ class FormViewConfigurationFactory {
 
     private function createFieldTypeOf(PersistenceFieldType $persistenceFieldType, string $key) {
         if (isset($this->entityFieldOverrides[$key], $this->entityFieldOverrides[$key][Field::class])
-            ) {
+        ) {
             return $this->entityFieldOverrides[$key][Field::class](null);
         }
         $valueTransformer = $this->valueTransformerConfiguration->getTransformerFor($persistenceFieldType);

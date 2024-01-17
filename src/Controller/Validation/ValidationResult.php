@@ -2,11 +2,11 @@
 
 namespace BaclucC5Crud\Controller\Validation;
 
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\Lib\IteratorTrait;
-use Iterator;
 
-class ValidationResult implements Iterator {
+use function BaclucC5Crud\Lib\collect;
+
+class ValidationResult implements \Iterator {
     use IteratorTrait;
 
     /**
@@ -21,6 +21,7 @@ class ValidationResult implements Iterator {
             ->filter(function (ValidationResultItem $validationResultItem) {
                 return $validationResultItem->isError();
             })
-            ->count() > 0;
+            ->count() > 0
+        ;
     }
 }

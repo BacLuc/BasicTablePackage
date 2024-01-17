@@ -5,14 +5,15 @@ namespace BaclucC5Crud\View\TableView;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\ValueSupplier;
 use BaclucC5Crud\Entity\WithUniqueStringRepresentation;
-use function BaclucC5Crud\Lib\collect as collect;
-use RuntimeException;
+
+use function BaclucC5Crud\Lib\collect;
 
 class DropdownField implements Field {
     /**
      * @var string
      */
     private $sqlValue;
+
     /**
      * @var ValueSupplier
      */
@@ -21,7 +22,7 @@ class DropdownField implements Field {
     /**
      * TextField constructor.
      *
-     * @param $sqlValue
+     * @param mixed $sqlValue
      */
     public function __construct($sqlValue, ValueSupplier $valueSupplier) {
         $this->sqlValue = $sqlValue;
@@ -43,7 +44,7 @@ class DropdownField implements Field {
                     return $value->createUniqueString();
                 }
                 if (is_object($value)) {
-                    throw new RuntimeException('$value is not instanceof WithUniqueStringRepresentation, thus it cannot be displayed, is instance of '.
+                    throw new \RuntimeException('$value is not instanceof WithUniqueStringRepresentation, thus it cannot be displayed, is instance of '.
                                                get_class($value));
                 }
 

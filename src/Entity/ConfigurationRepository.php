@@ -2,5 +2,4 @@
 
 namespace BaclucC5Crud\Entity;
 
-interface ConfigurationRepository extends Repository {
-}
+interface ConfigurationRepository extends Repository {}

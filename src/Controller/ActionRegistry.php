@@ -2,8 +2,9 @@
 
 namespace BaclucC5Crud\Controller;
 
-use function BaclucC5Crud\Lib\collect as collect;
 use Tightenco\Collect\Support\Collection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class ActionRegistry {
     /**

@@ -5,19 +5,23 @@ namespace BaclucC5Crud\Test\Entity;
 use BaclucC5Crud\Entity\ConfigurationRepository;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\Repository;
-use function BaclucC5Crud\Lib\collect as collect;
+use Tightenco\Collect\Support\Collection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class InMemoryRepository implements Repository, ConfigurationRepository {
     /**
      * @var int
      */
     private $autoIncrement = 0;
+
     /**
      * @var string
      */
     private $classname;
+
     /**
-     * @var \Tightenco\Collect\Support\Collection of
+     * @var Collection of
      */
     private $entites;
 
@@ -44,7 +48,7 @@ class InMemoryRepository implements Repository, ConfigurationRepository {
         $this->entites = $this->entites->add($entity);
     }
 
-    public function getAll(int $offset = 0, int $limit = null, array $orderEntries = []) {
+    public function getAll(int $offset = 0, ?int $limit = null, array $orderEntries = []) {
         return $this->entites->slice($offset, $limit)->toArray();
     }
 

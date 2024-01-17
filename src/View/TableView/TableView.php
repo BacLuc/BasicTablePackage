@@ -12,6 +12,7 @@ class TableView {
      * @var Row[]
      */
     private $rows;
+
     /**
      * @var int
      */

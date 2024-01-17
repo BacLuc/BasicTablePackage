@@ -15,30 +15,37 @@ use BaclucC5Crud\View\FormView\IntegerField;
 
 class ShowTable implements ActionProcessor {
     public const TABLE_VIEW = 'view/table';
+
     /**
      * @var TableViewService
      */
     private $tableViewService;
+
     /**
      * @var VariableSetter
      */
     private $variableSetter;
+
     /**
      * @var Renderer
      */
     private $renderer;
+
     /**
      * @var ActionConfiguration
      */
     private $actionConfiguration;
+
     /**
      * @var RowActionConfiguration
      */
     private $rowActionConfiguration;
+
     /**
      * @var PaginationParser
      */
     private $paginationParser;
+
     /**
      * @var CurrentUrlSupplier
      */

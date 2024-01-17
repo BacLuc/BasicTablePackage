@@ -12,6 +12,7 @@ trait Concrete5CrudController {
      * @var BlockController
      */
     private $blockController;
+
     /**
      * @var callable
      */
@@ -54,7 +55,7 @@ trait Concrete5CrudController {
         if (null == $this->blockController->blockViewRenderOverride) {
             Redirect::page(Page::getCurrentPage())->send();
 
-            exit();
+            exit;
         }
     }
 
@@ -68,7 +69,7 @@ trait Concrete5CrudController {
         if (null == $this->blockViewRenderOverride) {
             Redirect::page(Page::getCurrentPage())->send();
 
-            exit();
+            exit;
         }
     }
 

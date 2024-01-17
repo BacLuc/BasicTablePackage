@@ -10,7 +10,6 @@ use Concrete\Core\Package\Package;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Package\BaclucC5Crud\DiscriminatorEntry\DiscriminatorListener;
 use Doctrine\ORM\EntityManager;
-use Exception;
 
 class Controller extends Package {
     public const PACKAGE_HANDLE = 'bacluc_c5_crud';
@@ -29,6 +28,7 @@ class Controller extends Package {
      *                          Because Doctrine itself requires on the topmost entity a discriminatormap with all subentities,
      *                          we add here a EventListener when Doctrine Parses the Annotations.
      *                          This DiscriminatorListener scans the Annotations of Child Classes of BaseEntity for
+     *
      * @DiscriminatorEntry(value="Namespace\Classname") and adds them to the Discriminator Map,
      * So that you don't have to define the Cildren in the topmost parent class.
      */
@@ -61,6 +61,7 @@ class Controller extends Package {
         $block = BlockType::getByHandle('bacluc_crud');
 
         $app = Application::getFacadeApplication();
+
         /** @var Connection $db */
         $db = $app->make(Connection::class);
         $db->beginTransaction();
@@ -68,12 +69,12 @@ class Controller extends Package {
         try {
             if (is_object($block)) {
                 $blockId = $block->getBlockTypeID();
-                //delete of blocktype not in orm way, because there is no entity BlockType
+                // delete of blocktype not in orm way, because there is no entity BlockType
                 $db->query('DELETE FROM BlockTypes WHERE btID = ?', [$blockId]);
             }
             parent::uninstall();
             $db->commit();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $db->rollBack();
 
             throw $e;

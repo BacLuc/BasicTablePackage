@@ -13,45 +13,55 @@ use BaclucC5Crud\Controller\VariableSetter;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\Repository;
 use BaclucC5Crud\FormViewAfterValidationFailedService;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\View\CancelFormViewAction;
 use BaclucC5Crud\View\FormType;
 use BaclucC5Crud\View\SubmitFormViewAction;
 
+use function BaclucC5Crud\Lib\collect;
+
 class PostForm implements ActionProcessor {
     public const FORM_VIEW = 'view/form';
+
     /**
      * @var Validator
      */
     private $validator;
+
     /**
      * @var FormViewAfterValidationFailedService
      */
     private $formViewAfterValidationFailedService;
+
     /**
      * @var Repository
      */
     private $repository;
+
     /**
      * @var PersistorConfiguration
      */
     private $peristorConfiguration;
+
     /**
      * @var VariableSetter
      */
     private $variableSetter;
+
     /**
      * @var Renderer
      */
     private $renderer;
+
     /**
      * @var FormType
      */
     private $formType;
+
     /**
      * @var SubmitFormViewAction
      */
     private $submitFormAction;
+
     /**
      * @var CancelFormViewAction
      */
@@ -113,6 +123,7 @@ class PostForm implements ActionProcessor {
             if ($this->formType === FormType::$BLOCK_CONFIGURATION) {
                 $entity->setId($editId);
             }
+
             /**
              * @var FieldPersistor $persistor
              */
@@ -129,7 +140,8 @@ class PostForm implements ActionProcessor {
                     return $resultItem->getName();
                 })->map(function (ValidationResultItem $resultItem) {
                     return $resultItem->getMessages();
-                });
+                })
+            ;
             $this->variableSetter->set('validationErrors', $validationErrors);
             $this->variableSetter->set('addFormTags', $this->formType === FormType::$BLOCK_VIEW);
             $this->variableSetter->set('submitFormAction', $this->submitFormAction);

@@ -9,6 +9,7 @@ class EntityManagerRepository implements Repository, ConfigurationRepository {
      * @var EntityManager
      */
     private $entityManager;
+
     /**
      * @var string
      */
@@ -32,13 +33,14 @@ class EntityManagerRepository implements Repository, ConfigurationRepository {
         });
     }
 
-    public function getAll(int $offset = 0, int $limit = null, array $orderEntries = []) {
+    public function getAll(int $offset = 0, ?int $limit = null, array $orderEntries = []) {
         $qb = $this->entityManager->createQueryBuilder();
         $unorderedQuery = $qb->select('e')
             ->from($this->className, 'e')
             ->setFirstResult($offset)
             ->setMaxResults($limit)
         ;
+
         /** @var OrderConfigEntry $entry */
         foreach ($orderEntries as $entry) {
             $unorderedQuery = $unorderedQuery->addOrderBy($entry->getSqlFieldName(), $entry->isAsc() ? 'ASC' : 'DESC');
@@ -74,6 +76,7 @@ class EntityManagerRepository implements Repository, ConfigurationRepository {
         $qb = $this->entityManager->createQueryBuilder();
 
         return $qb->select('count(e)')
-            ->from($this->className, 'e')->getQuery()->getSingleScalarResult();
+            ->from($this->className, 'e')->getQuery()->getSingleScalarResult()
+        ;
     }
 }

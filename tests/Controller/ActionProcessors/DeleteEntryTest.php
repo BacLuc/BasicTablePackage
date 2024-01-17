@@ -14,6 +14,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DeleteEntryTest extends TestCase {
     public const TEST_1 = 'test_value';
+
     /**
      * @var CrudController
      */

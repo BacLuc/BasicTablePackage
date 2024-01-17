@@ -4,15 +4,17 @@ namespace BaclucC5Crud\View\FormView;
 
 use BaclucC5Crud\FieldConfigurationOverride\EntityFieldOverrides;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypeReader;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\View\FormView\ValueTransformers\IdentityValueTransformer;
 use BaclucC5Crud\View\FormView\ValueTransformers\PostValueTransformerConfiguration;
+
+use function BaclucC5Crud\Lib\collect;
 
 class PostFormViewConfigurationFactory {
     /**
      * @var EntityFieldOverrides
      */
     private $entityFieldOverrides;
+
     /**
      * @var FormViewConfigurationFactory
      */
@@ -39,13 +41,13 @@ class PostFormViewConfigurationFactory {
             collect($formViewFieldConfiguration)
                 ->map(function ($existingFactory, $key) {
                     if (isset($this->entityFieldOverrides[$key], $this->entityFieldOverrides[$key][Field::class])
-                        ) {
+                    ) {
                         return $this->entityFieldOverrides[$key][Field::class](new IdentityValueTransformer());
                     }
 
                     return $existingFactory;
                 })
-            ;
+        ;
 
         return new FormViewFieldConfiguration($fieldTypes->toArray());
     }

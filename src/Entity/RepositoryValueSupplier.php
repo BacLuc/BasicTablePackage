@@ -2,7 +2,7 @@
 
 namespace BaclucC5Crud\Entity;
 
-use function BaclucC5Crud\Lib\collect as collect;
+use function BaclucC5Crud\Lib\collect;
 
 class RepositoryValueSupplier implements ValueSupplier {
     /**

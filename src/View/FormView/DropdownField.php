@@ -11,14 +11,17 @@ class DropdownField implements Field {
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postName;
+
     /**
      * @var string
      */
     private $value;
+
     /**
      * @var ValueSupplier
      */
@@ -39,7 +42,7 @@ class DropdownField implements Field {
     public static function createDropdownField(
         string $fieldName,
         ValueSupplier $valueSupplier,
-        ValueTransformer $dropdownValueTransformer = null
+        ?ValueTransformer $dropdownValueTransformer = null
     ): \Closure {
         $dropdownValueTransformer = $dropdownValueTransformer ?: new DropdownValueTransformer();
         $getValue = function ($entity, $overrideValueTransformer) use ($fieldName, $dropdownValueTransformer) {

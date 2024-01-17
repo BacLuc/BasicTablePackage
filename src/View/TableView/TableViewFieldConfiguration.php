@@ -3,9 +3,8 @@
 namespace BaclucC5Crud\View\TableView;
 
 use BaclucC5Crud\Lib\IteratorTrait;
-use Iterator;
 
-class TableViewFieldConfiguration implements Iterator {
+class TableViewFieldConfiguration implements \Iterator {
     use IteratorTrait;
 
     /**

@@ -7,13 +7,15 @@ use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldType;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypeReader;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypes;
 use BaclucC5Crud\FieldTypeDetermination\ReferencingPersistenceFieldType;
-use function BaclucC5Crud\Lib\collect as collect;
+
+use function BaclucC5Crud\Lib\collect;
 
 class TableViewConfigurationFactory {
     /**
      * @var PersistenceFieldTypeReader
      */
     private $persistenceFieldTypeReader;
+
     /**
      * @var EntityFieldOverrides
      */
@@ -34,7 +36,7 @@ class TableViewConfigurationFactory {
                 ->map(function ($persistenceFieldType) {
                     return self::createFieldTypeOf($persistenceFieldType);
                 })
-            ;
+        ;
 
         return new TableViewFieldConfiguration($fieldTypes->toArray());
     }
@@ -81,14 +83,14 @@ class TableViewConfigurationFactory {
     }
 
     /**
-     * @param $value
-     * @param $key
+     * @param mixed $value
+     * @param mixed $key
      *
      * @return null|callable
      */
     private function checkFieldOverride($value, $key) {
         if (isset($this->entityFieldOverrides[$key], $this->entityFieldOverrides[$key][Field::class])
-            ) {
+        ) {
             return $this->entityFieldOverrides[$key][Field::class]($value);
         }
 

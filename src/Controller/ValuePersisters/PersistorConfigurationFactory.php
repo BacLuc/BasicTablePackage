@@ -7,13 +7,15 @@ use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldType;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypeReader;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypes;
 use BaclucC5Crud\FieldTypeDetermination\ReferencingPersistenceFieldType;
-use function BaclucC5Crud\Lib\collect as collect;
+
+use function BaclucC5Crud\Lib\collect;
 
 class PersistorConfigurationFactory {
     /**
      * @var PersistenceFieldTypeReader
      */
     private $persistenceFieldTypeReader;
+
     /**
      * @var EntityFieldOverrides
      */
@@ -36,14 +38,14 @@ class PersistorConfigurationFactory {
                         $key
                     );
                 })
-            ;
+        ;
 
         return new PersistorConfiguration($fieldTypes->toArray());
     }
 
     private function createFieldTypeOf(PersistenceFieldType $persistenceFieldType, string $key) {
         if (isset($this->entityFieldOverrides[$key], $this->entityFieldOverrides[$key][FieldPersistor::class])
-            ) {
+        ) {
             return $this->entityFieldOverrides[$key][FieldPersistor::class]($key);
         }
 

@@ -7,6 +7,7 @@ class PaginationConfiguration {
      * @var int
      */
     private $currentPage;
+
     /**
      * @var int
      */

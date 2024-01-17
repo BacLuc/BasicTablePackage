@@ -4,22 +4,26 @@ namespace BaclucC5Crud\View\FormView;
 
 use BaclucC5Crud\Entity\ValueSupplier;
 use BaclucC5Crud\Entity\WithUniqueStringRepresentation;
-use function BaclucC5Crud\Lib\collect as collect;
 use Doctrine\Common\Collections\ArrayCollection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class MultiSelectField implements Field {
     /**
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postname;
+
     /**
      * @var ArrayCollection
      */
     private $value;
+
     /**
      * @var ValueSupplier
      */

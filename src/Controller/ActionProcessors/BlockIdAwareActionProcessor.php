@@ -10,18 +10,22 @@ class BlockIdAwareActionProcessor implements ActionProcessor {
      * @var string
      */
     private $blockIdOfBlock;
+
     /**
      * @var string
      */
     private $blockIdOfRequest;
+
     /**
      * @var ActionProcessor
      */
     private $successAction;
+
     /**
      * @var ActionProcessor
      */
     private $failAction;
+
     /**
      * @var BlockIdSupplier
      */

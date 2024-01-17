@@ -1,10 +1,13 @@
-<?php /** @noinspection ALL */
+<?php
+use BaclucC5Crud\View\ViewActionDefinition;
+
+/** @noinspection ALL */
 $maxPageNum = floor($count / $pageSize);
 ?>
 <div class="table-responsive bacluc_c5_crud">
     <div class="tablecontrols">
         <?php foreach ($actions as $action) { ?>
-            <?php /** @var \BaclucC5Crud\View\ViewActionDefinition $action */ ?>
+            <?php /** @var ViewActionDefinition $action */ ?>
             <a href="<?php echo $this->action($action->getAction()); ?>">
                 <button type="submit" class="btn inlinebtn actionbutton btn-light <?php echo $action->getButtonClass(); ?>"
                         aria-label="<?php echo t($action->getAriaLabel()); ?>"
@@ -71,7 +74,7 @@ $maxPageNum = floor($count / $pageSize);
                         <span aria-hidden="true">&lt;</span>
                     </a>
                 </li>
-                <?php for ($i = max(0, $currentPage - 3); $i <= min(($currentPage + 3), $maxPageNum); ++$i) { ?>
+                <?php for ($i = max(0, $currentPage - 3); $i <= min($currentPage + 3, $maxPageNum); ++$i) { ?>
 
                     <li class="page-item <?php echo $currentPage == $i ? 'disabled' : ''; ?>">
                         <a class="page-link <?php echo $i == $currentPage ? 'active' : ''; ?>"

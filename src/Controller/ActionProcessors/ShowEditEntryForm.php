@@ -13,26 +13,32 @@ use BaclucC5Crud\View\SubmitFormViewAction;
 
 class ShowEditEntryForm implements ActionProcessor {
     public const FORM_VIEW = 'view/form';
+
     /**
      * @var FormViewService
      */
     private $formViewService;
+
     /**
      * @var VariableSetter
      */
     private $variableSetter;
+
     /**
      * @var Renderer
      */
     private $renderer;
+
     /**
      * @var FormType
      */
     private $formType;
+
     /**
      * @var SubmitFormViewAction
      */
     private $submitFormAction;
+
     /**
      * @var CancelFormViewAction
      */

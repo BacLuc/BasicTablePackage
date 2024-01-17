@@ -5,9 +5,11 @@ namespace BaclucC5Crud\Test\Controller\ActionProcessors;
 use BaclucC5Crud\Entity\ExampleEntityDropdownValueSupplier;
 use BaclucC5Crud\Entity\ReferencedEntity;
 use BaclucC5Crud\Entity\RepositoryFactory;
-use function BaclucC5Crud\Lib\collect as collect;
-use DateTime;
 use DI\Container;
+use DI\DependencyException;
+use DI\NotFoundException;
+
+use function BaclucC5Crud\Lib\collect;
 
 class ExampleEntityConstants {
     public const INT_VAL_1 = 65498;
@@ -42,10 +44,10 @@ class ExampleEntityConstants {
 
     public static function getFormValues() {
         $values = self::ENTRY_1_POST;
-        $values['datecolumn'] = DateTime::createFromFormat('d.m.Y', $values['datecolumn'])->format('Y-m-d');
-        $dateTime = DateTime::createFromFormat('d.m.Y H:i:s', $values['datetimecolumn']);
+        $values['datecolumn'] = \DateTime::createFromFormat('d.m.Y', $values['datecolumn'])->format('Y-m-d');
+        $dateTime = \DateTime::createFromFormat('d.m.Y H:i:s', $values['datetimecolumn']);
         if (!$dateTime) {
-            $dateTime = DateTime::createFromFormat('d.m.Y H:i', $values['datetimecolumn']);
+            $dateTime = \DateTime::createFromFormat('d.m.Y H:i', $values['datetimecolumn']);
         }
         $values['datetimecolumn'] = $dateTime->format('Y-m-d H:i');
 
@@ -96,8 +98,8 @@ class ExampleEntityConstants {
     }
 
     /**
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     public static function addReferencedEntityTestValues(Container $container): void {
         $referencedEntityRepository = $container->get(RepositoryFactory::class)

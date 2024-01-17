@@ -17,7 +17,9 @@ use Doctrine\ORM\Mapping\Table;
  *
  * @IgnoreAnnotation("package")
  *  Concrete\Package\BaclucC5Crud\Src
+ *
  * @Entity
+ *
  * @Table(name="btSomeReferencedEntity")
  */
 class SomeReferencedEntity implements Identifiable {
@@ -31,12 +33,16 @@ class SomeReferencedEntity implements Identifiable {
 
     /**
      * @var int
+     *
      * @Id @Column(type="integer")
+     *
      * @GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
+     *
      * @Column(type="string")
      */
     private $value;
