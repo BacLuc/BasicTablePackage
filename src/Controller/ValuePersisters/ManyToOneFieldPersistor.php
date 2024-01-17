@@ -9,6 +9,7 @@ class ManyToOneFieldPersistor implements FieldPersistor {
      * @var string
      */
     private $name;
+
     /**
      * @var ValueSupplier
      */

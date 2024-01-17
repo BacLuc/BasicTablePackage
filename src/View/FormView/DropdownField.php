@@ -11,14 +11,17 @@ class DropdownField implements Field {
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postName;
+
     /**
      * @var string
      */
     private $value;
+
     /**
      * @var ValueSupplier
      */

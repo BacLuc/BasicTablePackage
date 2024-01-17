@@ -2,8 +2,9 @@
 
 namespace BaclucC5Crud\View;
 
-use function BaclucC5Crud\Lib\collect as collect;
 use Tightenco\Collect\Support\Collection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class ViewActionRegistry {
     /**

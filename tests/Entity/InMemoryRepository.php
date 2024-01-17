@@ -5,19 +5,23 @@ namespace BaclucC5Crud\Test\Entity;
 use BaclucC5Crud\Entity\ConfigurationRepository;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\Repository;
-use function BaclucC5Crud\Lib\collect as collect;
+use Tightenco\Collect\Support\Collection;
+
+use function BaclucC5Crud\Lib\collect;
 
 class InMemoryRepository implements Repository, ConfigurationRepository {
     /**
      * @var int
      */
     private $autoIncrement = 0;
+
     /**
      * @var string
      */
     private $classname;
+
     /**
-     * @var \Tightenco\Collect\Support\Collection of
+     * @var Collection of
      */
     private $entites;
 

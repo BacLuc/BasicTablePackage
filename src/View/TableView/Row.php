@@ -3,9 +3,8 @@
 namespace BaclucC5Crud\View\TableView;
 
 use BaclucC5Crud\Lib\IteratorTrait;
-use Iterator;
 
-class Row implements Iterator {
+class Row implements \Iterator {
     use IteratorTrait;
     private $id;
 

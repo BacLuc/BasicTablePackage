@@ -2,9 +2,10 @@
 
 namespace BaclucC5Crud\Controller\Validation;
 
-use function BaclucC5Crud\Lib\collect as collect;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+
+use function BaclucC5Crud\Lib\collect;
 
 /**
  * @internal

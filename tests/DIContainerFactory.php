@@ -22,14 +22,13 @@ use BaclucC5Crud\View\FormView\Field as FormField;
 use BaclucC5Crud\View\FormView\WysiwygEditorFactory;
 use BaclucC5Crud\View\TableView\DropdownField as DropdownTableField;
 use BaclucC5Crud\View\TableView\Field as TableField;
-use function DI\autowire;
 use DI\Container;
 use DI\ContainerBuilder;
-use function DI\get;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Doctrine\ORM\EntityManager;
-use ReflectionException;
-use RuntimeException;
+
+use function DI\autowire;
+use function DI\get;
 
 class DIContainerFactory {
     public static function createContainer(EntityManager $entityManager, string $entityClass): Container {
@@ -50,8 +49,8 @@ class DIContainerFactory {
                 ->useFactory(DropdownFieldValidator::createDropdownFieldValidator($valueSupplier))
                 ->buildField()
             ;
-        } catch (ReflectionException $e) {
-            throw new RuntimeException($e);
+        } catch (\ReflectionException $e) {
+            throw new \RuntimeException($e);
         }
         $definitions = ProductionDefinition::createDefinition(
             $entityManager,

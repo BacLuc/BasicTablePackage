@@ -1,7 +1,10 @@
-<?php /** @noinspection ALL */ ?>
+<?php
+use BaclucC5Crud\View\FormView\Field;
+
+/* @noinspection ALL */ ?>
 <div class="bacluc_c5_crud">
     <?php foreach ($properties as $name => $value) { ?>
-        <?php /** @var \BaclucC5Crud\View\FormView\Field $field */ ?>
+        <?php /** @var Field $field */ ?>
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <label><?php echo t($name); ?></label>

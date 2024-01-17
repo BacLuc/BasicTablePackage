@@ -9,6 +9,7 @@ class CrudController {
      * @var ActionRegistry
      */
     private $actionRegistry;
+
     /**
      * @var BlockIdSupplier
      */

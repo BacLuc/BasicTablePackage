@@ -7,13 +7,15 @@ use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldType;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypeReader;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypes;
 use BaclucC5Crud\FieldTypeDetermination\ReferencingPersistenceFieldType;
-use function BaclucC5Crud\Lib\collect as collect;
+
+use function BaclucC5Crud\Lib\collect;
 
 class ValidationConfigurationFactory {
     /**
      * @var PersistenceFieldTypeReader
      */
     private $persistenceFieldTypeReader;
+
     /**
      * @var EntityFieldOverrides
      */
@@ -37,14 +39,15 @@ class ValidationConfigurationFactory {
                     );
                 })->filter(function ($value) {
                     return null != $value;
-                });
+                })
+        ;
 
         return new ValidationConfiguration($fieldTypes->toArray());
     }
 
     private function createFieldTypeOf(PersistenceFieldType $persistenceFieldType, string $key) {
         if (isset($this->entityFieldOverrides[$key], $this->entityFieldOverrides[$key][FieldValidator::class])
-            ) {
+        ) {
             return $this->entityFieldOverrides[$key][FieldValidator::class]($key);
         }
         $validators = [];

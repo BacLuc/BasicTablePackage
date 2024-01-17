@@ -3,9 +3,8 @@
 namespace BaclucC5Crud\Controller\Validation;
 
 use BaclucC5Crud\Lib\IteratorTrait;
-use Iterator;
 
-class ValidationConfiguration implements Iterator {
+class ValidationConfiguration implements \Iterator {
     use IteratorTrait;
 
     /**

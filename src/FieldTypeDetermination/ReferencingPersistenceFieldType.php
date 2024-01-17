@@ -9,6 +9,7 @@ class ReferencingPersistenceFieldType implements PersistenceFieldType {
      * @var string
      */
     private $type;
+
     /**
      * @var ValueSupplier
      */

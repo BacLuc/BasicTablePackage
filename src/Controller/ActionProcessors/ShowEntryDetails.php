@@ -7,20 +7,24 @@ use BaclucC5Crud\Controller\ActionRegistryFactory;
 use BaclucC5Crud\Controller\PaginationConfiguration;
 use BaclucC5Crud\Controller\Renderer;
 use BaclucC5Crud\Controller\VariableSetter;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\TableViewService;
 use BaclucC5Crud\View\TableView\Row;
 
+use function BaclucC5Crud\Lib\collect;
+
 class ShowEntryDetails implements ActionProcessor {
     public const DETAIL_VIEW = 'view/detail';
+
     /**
      * @var TableViewService
      */
     private $tableViewService;
+
     /**
      * @var VariableSetter
      */
     private $variableSetter;
+
     /**
      * @var Renderer
      */
@@ -46,6 +50,7 @@ class ShowEntryDetails implements ActionProcessor {
         }
 
         $tableView = $this->tableViewService->getTableView(new PaginationConfiguration(0, null));
+
         /**
          * @var Row $detailEntry
          */

@@ -16,7 +16,9 @@ use Doctrine\ORM\Mapping\Table;
  *
  * @IgnoreAnnotation("package")
  *  Concrete\Package\BaclucC5Crud\Src
+ *
  * @Entity
+ *
  * @Table(name="btReferencedEntity")
  */
 class ReferencedEntity implements WithUniqueStringRepresentation, Identifiable {
@@ -30,12 +32,16 @@ class ReferencedEntity implements WithUniqueStringRepresentation, Identifiable {
 
     /**
      * @var int
+     *
      * @Id @Column(type="integer")
+     *
      * @GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
+     *
      * @Column(type="string")
      */
     private $value;

@@ -8,17 +8,19 @@ use BaclucC5Crud\FieldTypeDetermination\ManyToOneAnnotationHandler;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldType;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypeReader;
 use BaclucC5Crud\FieldTypeDetermination\PersistenceFieldTypes;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\Test\Entity\InMemoryRepositoryFactory;
 use BaclucC5Crud\Test\Entity\SomeEntity;
+use Doctrine\Common\Annotations\AnnotationException;
 use PHPUnit\Framework\TestCase;
+
+use function BaclucC5Crud\Lib\collect;
 
 /**
  * @internal
  */
 class PersistenceFieldTypeReaderTest extends TestCase {
     /**
-     * @throws \Doctrine\Common\Annotations\AnnotationException
+     * @throws AnnotationException
      * @throws \ReflectionException
      */
     public function testReadPropertyTypes() {

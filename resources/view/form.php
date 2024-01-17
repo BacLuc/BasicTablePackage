@@ -1,4 +1,7 @@
-<?php /** @noinspection ALL */ ?>
+<?php
+use BaclucC5Crud\View\FormView\Field;
+
+/* @noinspection ALL */ ?>
 <div class="bacluc_c5_crud">
 <?php if ($addFormTags) { ?>
     <form action="<?php echo $this->action($submitFormAction->getAction()).
@@ -6,7 +9,7 @@
                                  ''); ?>" method='POST' enctype="multipart/form-data" novalidate>
 <?php } ?>
 <?php foreach ($fields as $name => $field) { ?>
-    <?php /** @var \BaclucC5Crud\View\FormView\Field $field */ ?>
+    <?php /** @var Field $field */ ?>
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <label><?php echo t($field->getLabel()); ?></label>

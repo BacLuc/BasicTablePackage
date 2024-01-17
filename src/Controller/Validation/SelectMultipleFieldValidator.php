@@ -3,13 +3,15 @@
 namespace BaclucC5Crud\Controller\Validation;
 
 use BaclucC5Crud\Entity\ValueSupplier;
-use function BaclucC5Crud\Lib\collect as collect;
+
+use function BaclucC5Crud\Lib\collect;
 
 class SelectMultipleFieldValidator implements FieldValidator {
     /**
      * @var string
      */
     private $name;
+
     /**
      * @var ValueSupplier
      */
@@ -35,7 +37,8 @@ class SelectMultipleFieldValidator implements FieldValidator {
         $areAllValuesValid = 0 == collect($postValue)
             ->filter(function ($value) use ($possibleValues) {
                 return !isset($possibleValues[$value]);
-            })->count();
+            })->count()
+        ;
         if ([] !== $postValue && !$areAllValuesValid) {
             return new ValidationResultItem(
                 $this->name,

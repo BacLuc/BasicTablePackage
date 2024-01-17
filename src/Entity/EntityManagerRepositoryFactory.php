@@ -3,7 +3,6 @@
 namespace BaclucC5Crud\Entity;
 
 use Doctrine\ORM\EntityManager;
-use InvalidArgumentException;
 
 class EntityManagerRepositoryFactory implements RepositoryFactory {
     /**
@@ -17,7 +16,7 @@ class EntityManagerRepositoryFactory implements RepositoryFactory {
 
     public function createRepositoryFor(string $className): Repository {
         if (!class_exists($className)) {
-            throw new InvalidArgumentException("class {$className} does not exist");
+            throw new \InvalidArgumentException("class {$className} does not exist");
         }
 
         return new EntityManagerRepository($this->entityManager, $className);

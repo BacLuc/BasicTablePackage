@@ -2,8 +2,6 @@
 
 namespace BaclucC5Crud\FieldTypeDetermination;
 
-use ReflectionClass;
-
 class PersistenceFieldTypes {
     public const INTEGER = 'integer';
     public const STRING = 'string';
@@ -17,7 +15,7 @@ class PersistenceFieldTypes {
      * @throws \ReflectionException
      */
     public static function getTypes() {
-        $reflectionClass = new ReflectionClass(new self());
+        $reflectionClass = new \ReflectionClass(new self());
 
         return $reflectionClass->getConstants();
     }

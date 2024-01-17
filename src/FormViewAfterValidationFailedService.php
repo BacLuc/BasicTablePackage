@@ -4,11 +4,10 @@ namespace BaclucC5Crud;
 
 use BaclucC5Crud\Controller\Validation\ValidationResult;
 use BaclucC5Crud\Controller\Validation\ValidationResultItem;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\View\FormView\FormView;
 use BaclucC5Crud\View\FormView\PostFormViewConfigurationFactory;
-use Error;
-use stdClass;
+
+use function BaclucC5Crud\Lib\collect;
 
 class FormViewAfterValidationFailedService {
     /**
@@ -26,14 +25,15 @@ class FormViewAfterValidationFailedService {
     }
 
     public function getFormView(ValidationResult $validationResult) {
-        $entity = new stdClass();
+        $entity = new \stdClass();
+
         /**
          * @var ValidationResultItem $validationResultItem
          */
         foreach ($validationResult as $key => $validationResultItem) {
             try {
                 $entity->{$key} = $validationResultItem->getPostValue();
-            } catch (Error $ignored) {
+            } catch (\Error $ignored) {
             }
         }
         $fields =

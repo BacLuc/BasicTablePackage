@@ -3,21 +3,23 @@
 namespace BaclucC5Crud;
 
 use BaclucC5Crud\Entity\Repository;
-use function BaclucC5Crud\Lib\collect as collect;
 use BaclucC5Crud\View\FormType;
 use BaclucC5Crud\View\FormView\FormView;
 use BaclucC5Crud\View\FormView\FormViewFieldConfiguration;
-use stdClass;
+
+use function BaclucC5Crud\Lib\collect;
 
 class FormViewService {
     /**
      * @var FormViewFieldConfiguration
      */
     private $formViewFieldConfiguration;
+
     /**
      * @var Repository
      */
     private $repository;
+
     /**
      * @var FormType
      */
@@ -34,7 +36,7 @@ class FormViewService {
     }
 
     public function getFormView($editId = null): FormView {
-        $entity = new stdClass();
+        $entity = new \stdClass();
         if (null != $editId) {
             $entity = $this->repository->getById($editId);
             if (null === $entity && $this->formType === FormType::$BLOCK_CONFIGURATION) {

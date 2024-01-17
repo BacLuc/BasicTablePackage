@@ -2,11 +2,10 @@
 
 namespace BaclucC5Crud\Test\Constraints;
 
-use function BaclucC5Crud\Lib\collect as collect;
-use function mb_stripos;
-use function mb_strpos;
-use function mb_strtolower;
 use PHPUnit\Framework\Constraint\Constraint;
+
+use function BaclucC5Crud\Lib\collect;
+use function mb_strpos;
 
 /**
  * Constraint that asserts that the string it is evaluated for contains
@@ -39,7 +38,7 @@ class StringContainsAll extends Constraint {
     public function toString(): string {
         if ($this->ignoreCase) {
             $strings = collect($this->strings)->map(function ($string) {
-                return mb_strtolower($string);
+                return \mb_strtolower($string);
             });
         } else {
             $strings = collect($this->strings);
@@ -51,22 +50,19 @@ class StringContainsAll extends Constraint {
         );
     }
 
-    /**
-     * {@inheritDoc}
-     */
     protected function matches($other): bool {
         if ([] === $this->strings) {
             return true;
         }
 
         return 0 === collect($this->strings)->filter(function ($string) use ($other) {
-            return $this->ignoreCase ? false === mb_stripos($other, $string) : false === mb_strpos($other, $string);
+            return $this->ignoreCase ? false === \mb_stripos($other, $string) : false === \mb_strpos($other, $string);
         })->count();
     }
 
     protected function failureDescription($other): string {
         $notFound = collect($this->strings)->filter(function ($string) use ($other) {
-            return $this->ignoreCase ? false === mb_stripos($other, $string) : false === mb_strpos($other, $string);
+            return $this->ignoreCase ? false === \mb_stripos($other, $string) : false === \mb_strpos($other, $string);
         })->join(',');
 
         return "the following strings [{$notFound}]\n

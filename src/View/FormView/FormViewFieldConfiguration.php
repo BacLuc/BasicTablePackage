@@ -3,9 +3,8 @@
 namespace BaclucC5Crud\View\FormView;
 
 use BaclucC5Crud\Lib\IteratorTrait;
-use Iterator;
 
-class FormViewFieldConfiguration implements Iterator {
+class FormViewFieldConfiguration implements \Iterator {
     use IteratorTrait;
 
     /**

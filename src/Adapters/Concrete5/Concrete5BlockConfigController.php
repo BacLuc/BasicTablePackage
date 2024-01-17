@@ -15,6 +15,7 @@ trait Concrete5BlockConfigController {
      * @var BlockController
      */
     private $blockController;
+
     /**
      * @var callable
      */
@@ -49,10 +50,10 @@ trait Concrete5BlockConfigController {
     /**
      * @param null|array|string $args
      *
+     * @return bool|ErrorList|void
+     *
      * @throws DependencyException
      * @throws NotFoundException
-     *
-     * @return bool|ErrorList|void
      */
     public function validate($args) {
         /** @var ValidationResult $validationResult */
@@ -62,6 +63,7 @@ trait Concrete5BlockConfigController {
                 ->getActionFor(ActionRegistryFactory::VALIDATE_FORM, $this->blockId),
             $this->blockId
         );
+
         /** @var ErrorList $e */
         $e = $this->app->make(ErrorList::class);
         foreach ($validationResult as $validationResultItem) {

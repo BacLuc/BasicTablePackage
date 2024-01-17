@@ -7,7 +7,6 @@ use BaclucC5Crud\View\FormView\DropdownField;
 use BaclucC5Crud\View\FormView\ValueTransformers\ValueTransformer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use stdClass;
 
 /**
  * @internal
@@ -17,14 +16,17 @@ class DropdownFieldTest extends TestCase {
      * @var MockObject|ValueTransformer
      */
     private $dropdownValueTransformerMock;
+
     /**
      * @var MockObject|ValueTransformer
      */
     private $identityValueTransformerMock;
+
     /**
      * @var MockObject|ValueSupplier
      */
     private $valueSupplier;
+
     /**
      * @var \Closure
      */
@@ -38,7 +40,7 @@ class DropdownFieldTest extends TestCase {
         $fieldName = 'test';
         $this->dropdownFieldCallable =
             DropdownField::createDropdownField($fieldName, $this->valueSupplier, $this->dropdownValueTransformerMock);
-        $this->entity = new stdClass();
+        $this->entity = new \stdClass();
         $this->entity->{$fieldName} = null;
     }
 

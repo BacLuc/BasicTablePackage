@@ -3,17 +3,18 @@
 namespace BaclucC5Crud\View\FormView;
 
 use BaclucC5Crud\View\FormView\ValueTransformers\DateTimeValueTransformer;
-use DateTime;
 
 class DateTimeField implements Field {
     /**
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postname;
+
     /**
      * @var ?\DateTime
      */
@@ -31,9 +32,9 @@ class DateTimeField implements Field {
     public function getFormView(): string {
         $output =
             $this->value ?
-                DateTime::createFromFormat(DateTimeValueTransformer::DATETIME_FORMAT, $this->value)
+                \DateTime::createFromFormat(DateTimeValueTransformer::DATETIME_FORMAT, $this->value)
                 : '';
-        if ($output instanceof DateTime) {
+        if ($output instanceof \DateTime) {
             $output = $output->format('Y-m-d\\TH:i');
         } else {
             $output = $this->value;

@@ -7,6 +7,8 @@ use BaclucC5Crud\Controller\CrudController;
 use BaclucC5Crud\Entity\ExampleEntity;
 use BaclucC5Crud\Test\DIContainerFactory;
 use DI\Container;
+use DI\DependencyException;
+use DI\NotFoundException;
 use Doctrine\ORM\EntityManager;
 use PHPUnit\Framework\TestCase;
 
@@ -22,8 +24,8 @@ class ShowTableTest extends TestCase {
     private $crudController;
 
     /**
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     protected function setUp(): void {
         /** @var EntityManager $entityManager */

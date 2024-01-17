@@ -6,9 +6,6 @@ use BaclucC5Crud\Entity\Identifiable;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class MultiSelectValueTransformer implements ValueTransformer {
-    /**
-     * {@inheritDoc}
-     */
     public function transform($persistenceValue) {
         $arrayCollection = $persistenceValue ?: new ArrayCollection();
 

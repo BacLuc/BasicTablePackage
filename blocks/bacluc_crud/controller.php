@@ -23,7 +23,6 @@ use Concrete\Core\Support\Facade\Application;
 use Concrete\Package\BaclucC5Crud\Controller as PackageController;
 use DI\DependencyException;
 use DI\NotFoundException;
-use Exception;
 
 class Controller extends BlockController {
     use Concrete5BlockConfigController;
@@ -42,7 +41,7 @@ class Controller extends BlockController {
     /**
      * @throws DependencyException
      * @throws NotFoundException
-     * @throws Exception
+     * @throws \Exception
      */
     private function createCrudController(): CrudController {
         $entityManager = PackageController::getEntityManagerStatic();
@@ -62,6 +61,7 @@ class Controller extends BlockController {
         ;
 
         $app = Application::getFacadeApplication();
+
         /** @var PackageController $packageController */
         $packageController = $app->make(PackageService::class)->getByHandle(PackageController::PACKAGE_HANDLE);
 
@@ -82,7 +82,7 @@ class Controller extends BlockController {
     /**
      * @throws DependencyException
      * @throws NotFoundException
-     * @throws Exception
+     * @throws \Exception
      */
     private function createConfigController(): CrudController {
         $entityManager = PackageController::getEntityManagerStatic();
@@ -102,6 +102,7 @@ class Controller extends BlockController {
         ;
 
         $app = Application::getFacadeApplication();
+
         /** @var PackageController $packageController */
         $packageController = $app->make(PackageService::class)->getByHandle(PackageController::PACKAGE_HANDLE);
         $container = DIContainerFactory::createContainer(

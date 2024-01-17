@@ -2,8 +2,6 @@
 
 namespace BaclucC5Crud\FieldConfigurationOverride;
 
-use LogicException;
-
 class FieldTypeOverrideBuilder {
     /**
      * @var string
@@ -24,7 +22,7 @@ class FieldTypeOverrideBuilder {
             throw new \InvalidArgumentException("interface {$interfaceName} does not exist, please use an existing interface name");
         }
         if (array_key_exists($interfaceName, $this->overrides)) {
-            throw new LogicException("cannot define override for same interface twice. Override for interface {$interfaceName} is already defined");
+            throw new \LogicException("cannot define override for same interface twice. Override for interface {$interfaceName} is already defined");
         }
 
         $this->currentOverride = $interfaceName;
@@ -35,7 +33,7 @@ class FieldTypeOverrideBuilder {
 
     public function useFactory(callable $factory): FieldTypeOverrideBuilder {
         if (null == $this->currentOverride) {
-            throw new LogicException('you need to call forType before you can call useFactory');
+            throw new \LogicException('you need to call forType before you can call useFactory');
         }
         $this->overrides[$this->currentOverride] = $factory;
         $this->currentOverride = null;

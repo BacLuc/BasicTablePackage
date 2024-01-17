@@ -7,18 +7,22 @@ class ViewActionDefinition implements SubmitFormViewAction, CancelFormViewAction
      * @var string
      */
     private $action;
+
     /**
      * @var string
      */
     private $buttonClass;
+
     /**
      * @var string
      */
     private $ariaLabel;
+
     /**
      * @var string
      */
     private $title;
+
     /**
      * @var string
      */

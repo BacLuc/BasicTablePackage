@@ -20,7 +20,9 @@ use Doctrine\ORM\Mapping\Table;
  *
  * @IgnoreAnnotation("package")
  *  Concrete\Package\BaclucC5Crud\Src
+ *
  * @Entity
+ *
  * @Table(name="btExampleEntity")
  */
 class SomeEntity implements Identifiable {
@@ -34,24 +36,30 @@ class SomeEntity implements Identifiable {
 
     /**
      * @var SomeReferencedEntity
+     *
      * @ManyToOne(targetEntity="BaclucC5Crud\Test\Entity\SomeReferencedEntity")
      */
     protected $manyToOne;
 
     /**
      * @var SomeReferencedEntity[]
+     *
      * @ManyToMany(targetEntity="BaclucC5Crud\Test\Entity\SomeReferencedEntity")
      */
     protected $manyToMany;
 
     /**
      * @var int
+     *
      * @Id @Column(type="integer")
+     *
      * @GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
+     *
      * @Column(type="string")
      */
     private $value;

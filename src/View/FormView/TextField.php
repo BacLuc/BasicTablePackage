@@ -7,10 +7,12 @@ class TextField implements Field {
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postname;
+
     /**
      * @var string
      */

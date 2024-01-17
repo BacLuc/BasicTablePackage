@@ -9,6 +9,7 @@ class EntityManagerRepository implements Repository, ConfigurationRepository {
      * @var EntityManager
      */
     private $entityManager;
+
     /**
      * @var string
      */
@@ -39,6 +40,7 @@ class EntityManagerRepository implements Repository, ConfigurationRepository {
             ->setFirstResult($offset)
             ->setMaxResults($limit)
         ;
+
         /** @var OrderConfigEntry $entry */
         foreach ($orderEntries as $entry) {
             $unorderedQuery = $unorderedQuery->addOrderBy($entry->getSqlFieldName(), $entry->isAsc() ? 'ASC' : 'DESC');
@@ -74,6 +76,7 @@ class EntityManagerRepository implements Repository, ConfigurationRepository {
         $qb = $this->entityManager->createQueryBuilder();
 
         return $qb->select('count(e)')
-            ->from($this->className, 'e')->getQuery()->getSingleScalarResult();
+            ->from($this->className, 'e')->getQuery()->getSingleScalarResult()
+        ;
     }
 }

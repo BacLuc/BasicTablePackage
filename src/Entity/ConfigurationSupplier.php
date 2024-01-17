@@ -9,6 +9,7 @@ class ConfigurationSupplier {
      * @var ConfigurationRepository
      */
     private $configurationRepository;
+
     /**
      * @var BlockIdSupplier
      */

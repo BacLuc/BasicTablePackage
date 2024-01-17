@@ -8,6 +8,7 @@ class ValidationResultItem {
      */
     private $name;
     private $postValue;
+
     /**
      * @var array
      */

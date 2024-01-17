@@ -3,7 +3,6 @@
 namespace BaclucC5Crud\Adapters\Concrete5;
 
 use BaclucC5Crud\Controller\Renderer;
-use BadMethodCallException;
 use Concrete\Core\Block\BlockController;
 use Concrete\Package\BaclucC5Crud\Controller;
 
@@ -12,6 +11,7 @@ class Concrete5Renderer implements Renderer {
      * @var BlockController
      */
     private $blockController;
+
     /**
      * @var string
      */
@@ -33,6 +33,6 @@ class Concrete5Renderer implements Renderer {
     }
 
     public function action(string $action) {
-        throw new BadMethodCallException('this method is not implemented');
+        throw new \BadMethodCallException('this method is not implemented');
     }
 }

@@ -43,21 +43,21 @@ use BaclucC5Crud\View\TableView\TableViewFieldConfiguration;
 use BaclucC5Crud\View\ViewActionRegistry;
 use BaclucC5Crud\View\ViewActionRegistryFactory;
 use Concrete\Core\Block\BlockController;
-use function DI\autowire;
 use DI\Container;
 use DI\ContainerBuilder;
-use function DI\create;
-use function DI\factory;
-use function DI\value;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Doctrine\ORM\EntityManager;
 
+use function DI\autowire;
+use function DI\create;
+use function DI\factory;
+use function DI\value;
+
 class DIContainerFactory {
     /**
-     * @param $entityClass
-     * @param FormType $formType
-     * @param mixed    $configurationClass
-     * @param mixed    $blockId
+     * @param mixed $configurationClass
+     * @param mixed $blockId
+     * @param mixed $entityClass
      *
      * @throws \Exception
      */

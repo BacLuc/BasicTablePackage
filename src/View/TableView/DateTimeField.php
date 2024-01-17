@@ -2,18 +2,16 @@
 
 namespace BaclucC5Crud\View\TableView;
 
-use DateTime;
-
 class DateTimeField implements Field {
     /**
-     * @var null|DateTime
+     * @var null|\DateTime
      */
     private $sqlValue;
 
     /**
      * TextField constructor.
      */
-    public function __construct(?DateTime $sqlValue) {
+    public function __construct(?\DateTime $sqlValue) {
         $this->sqlValue = $sqlValue;
     }
 

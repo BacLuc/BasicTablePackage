@@ -9,6 +9,8 @@ use BaclucC5Crud\Entity\ExampleEntityDropdownValueSupplier;
 use BaclucC5Crud\Test\Constraints\Matchers;
 use BaclucC5Crud\Test\DIContainerFactory;
 use DI\Container;
+use DI\DependencyException;
+use DI\NotFoundException;
 use Doctrine\ORM\EntityManager;
 use PHPUnit\Framework\TestCase;
 
@@ -22,12 +24,13 @@ class PostFormTest extends TestCase {
     private $crudController;
 
     /**
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     protected function setUp(): void {
         /** @var EntityManager $entityManager */
         $entityManager = $this->createMock(EntityManager::class);
+
         /** @var Container $container */
         $container = DIContainerFactory::createContainer($entityManager, ExampleEntity::class);
         ExampleEntityConstants::addReferencedEntityTestValues($container);
@@ -120,7 +123,7 @@ class PostFormTest extends TestCase {
         $form_fields['manyToOne'] = '<option value="1" selected>';
         $form_fields['manyToMany'] = '<option value="1" selected>';
         $this->assertThat($output, Matchers::stringContainsKeysAndValues($form_fields));
-        //second selected entry of manyToOne
+        // second selected entry of manyToOne
         $this->assertThat($output, $this->stringContains('<option value="2" selected>'));
     }
 
@@ -139,7 +142,7 @@ class PostFormTest extends TestCase {
         $form_fields['manyToOne'] = '<option value="1" selected>';
         $form_fields['manyToMany'] = '<option value="1" selected>';
         $this->assertThat($output, Matchers::stringContainsKeysAndValues($form_fields));
-        //second selected entry of manyToOne
+        // second selected entry of manyToOne
         $this->assertThat($output, $this->stringContains('<option value="2" selected>'));
     }
 

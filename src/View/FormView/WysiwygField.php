@@ -7,14 +7,17 @@ class WysiwygField implements Field {
      * @var WysiwygEditor
      */
     private $wysiwygEditor;
+
     /**
      * @var string
      */
     private $label;
+
     /**
      * @var string
      */
     private $postname;
+
     /**
      * @var string
      */

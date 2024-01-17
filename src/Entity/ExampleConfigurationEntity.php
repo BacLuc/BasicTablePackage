@@ -18,7 +18,9 @@ use Doctrine\ORM\Mapping\Table;
  *
  * @IgnoreAnnotation("package")
  *  Concrete\Package\BaclucC5Crud\Src
+ *
  * @Entity
+ *
  * @Table(name="btExampleConfigurationEntity")
  */
 class ExampleConfigurationEntity implements Identifiable {
@@ -37,25 +39,30 @@ class ExampleConfigurationEntity implements Identifiable {
 
     /**
      * @var ReferencedEntity
+     *
      * @ManyToOne(targetEntity="BaclucC5Crud\Entity\ReferencedEntity")
      */
     protected $manyToOne;
 
     /**
      * @var ReferencedEntity[]
+     *
      * @ManyToMany(targetEntity="BaclucC5Crud\Entity\ReferencedEntity")
      */
     protected $manyToMany;
+
     /**
      * Id of the block the configuration references.
      *
      * @var int
+     *
      * @Id @Column(type="integer")
      */
     private $id;
 
     /**
      * @var string
+     *
      * @Column(type="string")
      */
     private $value;
