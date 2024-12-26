@@ -6,15 +6,7 @@ use BaclucC5Crud\Controller\VariableSetter;
 use Concrete\Core\Block\BlockController;
 
 class Concrete5VariableSetter implements VariableSetter {
-    /**
-     * @var BlockController
-     */
-    private $blockController;
-
-    /**
-     * Concrete5VariableSetter constructor.
-     */
-    public function __construct(BlockController $blockController) {
+    public function __construct(private BlockController $blockController) {
         $this->blockController = $blockController;
     }
 

@@ -17,6 +17,7 @@ use BaclucC5Crud\View\FormView\DropdownField;
 use BaclucC5Crud\View\FormView\Field as FormField;
 use BaclucC5Crud\View\TableView\DropdownField as DropdownTableField;
 use BaclucC5Crud\View\TableView\Field as TableField;
+use Closure;
 use Concrete\Core\Block\BlockController;
 use Concrete\Core\Package\PackageService;
 use Concrete\Core\Support\Facade\Application;
@@ -30,8 +31,8 @@ class Controller extends BlockController {
 
     public function __construct($obj = null) {
         parent::__construct($obj);
-        $this->initializeConfig($this, [$this, 'createConfigController'], $this->bID);
-        $this->initializeCrud($this, [$this, 'createCrudController'], $this->bID);
+        $this->initializeConfig($this, $this->createConfigController(...), $this->bID);
+        $this->initializeCrud($this, $this->createCrudController(...), $this->bID);
     }
 
     public function getBlockTypeName() {

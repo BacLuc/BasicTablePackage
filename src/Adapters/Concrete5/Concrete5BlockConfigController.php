@@ -5,23 +5,18 @@ namespace BaclucC5Crud\Adapters\Concrete5;
 use BaclucC5Crud\Controller\ActionRegistryFactory;
 use BaclucC5Crud\Controller\Validation\ValidationResult;
 use BaclucC5Crud\Controller\Validation\ValidationResultItem;
+use Closure;
 use Concrete\Core\Block\BlockController;
 use Concrete\Core\Error\ErrorList\ErrorList;
 use DI\DependencyException;
 use DI\NotFoundException;
 
 trait Concrete5BlockConfigController {
-    /**
-     * @var BlockController
-     */
-    private $blockController;
+    private BlockController $blockController;
 
-    /**
-     * @var callable
-     */
-    private $configController;
+    private Closure $configController;
 
-    private $blockId;
+    private string $blockId;
 
     /**
      * @throws DependencyException

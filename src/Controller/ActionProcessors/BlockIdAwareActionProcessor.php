@@ -6,41 +6,13 @@ use BaclucC5Crud\Controller\ActionProcessor;
 use BaclucC5Crud\Controller\BlockIdSupplier;
 
 class BlockIdAwareActionProcessor implements ActionProcessor {
-    /**
-     * @var string
-     */
-    private $blockIdOfBlock;
-
-    /**
-     * @var string
-     */
-    private $blockIdOfRequest;
-
-    /**
-     * @var ActionProcessor
-     */
-    private $successAction;
-
-    /**
-     * @var ActionProcessor
-     */
-    private $failAction;
-
-    /**
-     * @var BlockIdSupplier
-     */
-    private $blockIdSupplier;
 
     public function __construct(
-        BlockIdSupplier $blockIdSupplier,
-        $blockIdOfRequest,
-        ActionProcessor $successAction,
-        ActionProcessor $failAction
+        private BlockIdSupplier $blockIdSupplier,
+        private string $blockIdOfRequest,
+        private ActionProcessor $successAction,
+        private ActionProcessor $failAction
     ) {
-        $this->blockIdSupplier = $blockIdSupplier;
-        $this->blockIdOfRequest = $blockIdOfRequest;
-        $this->successAction = $successAction;
-        $this->failAction = $failAction;
     }
 
     public function getName(): string {

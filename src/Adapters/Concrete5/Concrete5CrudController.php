@@ -3,22 +3,17 @@
 namespace BaclucC5Crud\Adapters\Concrete5;
 
 use BaclucC5Crud\Controller\ActionRegistryFactory;
+use Closure;
 use Concrete\Core\Block\BlockController;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Routing\Redirect;
 
 trait Concrete5CrudController {
-    /**
-     * @var BlockController
-     */
-    private $blockController;
+    private BlockController $blockController;
 
-    /**
-     * @var callable
-     */
-    private $crudController;
+    private Closure $crudController;
 
-    private $blockId;
+    private string $blockId;
 
     public function view() {
         ProcessAction::processAction(

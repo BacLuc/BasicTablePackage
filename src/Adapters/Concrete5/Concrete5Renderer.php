@@ -7,20 +7,8 @@ use Concrete\Core\Block\BlockController;
 use Concrete\Package\BaclucC5Crud\Controller;
 
 class Concrete5Renderer implements Renderer {
-    /**
-     * @var BlockController
-     */
-    private $blockController;
 
-    /**
-     * @var string
-     */
-    private $packagePath;
-    private $crudPackagePath;
-
-    public function __construct(BlockController $blockController, string $packagePath) {
-        $this->blockController = $blockController;
-        $this->packagePath = $packagePath;
+    public function __construct(private BlockController $blockController,private string $packagePath) {
     }
 
     public function render(string $path) {

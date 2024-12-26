@@ -6,13 +6,8 @@ use BaclucC5Crud\Controller\CurrentUrlSupplier;
 use Concrete\Core\Block\BlockController;
 
 class Concrete5CurrentUrlSupplier implements CurrentUrlSupplier {
-    /**
-     * @var BlockController
-     */
-    private $blockController;
 
-    public function __construct(BlockController $blockController) {
-        $this->blockController = $blockController;
+    public function __construct(private BlockController $blockController) {
     }
 
     public function getUrl() {

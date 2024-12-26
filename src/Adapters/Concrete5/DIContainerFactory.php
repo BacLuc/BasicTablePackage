@@ -55,19 +55,15 @@ use function DI\value;
 
 class DIContainerFactory {
     /**
-     * @param mixed $configurationClass
-     * @param mixed $blockId
-     * @param mixed $entityClass
-     *
      * @throws \Exception
      */
     public static function createContainer(
         BlockController $controller,
         EntityManager $entityManager,
-        $entityClass,
-        $configurationClass,
+        mixed $entityClass,
+        mixed $configurationClass,
         EntityFieldOverrides $entityFieldOverrides,
-        $blockId,
+        mixed $blockId,
         string $packagePath,
         ?FormType $formType = null
     ): Container {

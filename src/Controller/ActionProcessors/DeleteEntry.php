@@ -7,16 +7,7 @@ use BaclucC5Crud\Controller\ActionRegistryFactory;
 use BaclucC5Crud\Entity\Repository;
 
 class DeleteEntry implements ActionProcessor {
-    /**
-     * @var Repository
-     */
-    private $repository;
-
-    /**
-     * PostFormActionProcessor constructor.
-     */
-    public function __construct(Repository $repository) {
-        $this->repository = $repository;
+    public function __construct(private Repository $repository) {
     }
 
     public function getName(): string {
