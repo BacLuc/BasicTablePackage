@@ -2,7 +2,7 @@
 
 namespace BaclucC5Crud\Lib;
 
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 class CollectionHelper {}
 

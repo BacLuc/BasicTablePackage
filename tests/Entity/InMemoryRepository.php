@@ -5,7 +5,7 @@ namespace BaclucC5Crud\Test\Entity;
 use BaclucC5Crud\Entity\ConfigurationRepository;
 use BaclucC5Crud\Entity\Identifiable;
 use BaclucC5Crud\Entity\Repository;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 use function BaclucC5Crud\Lib\collect;
 

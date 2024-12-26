@@ -2,7 +2,7 @@
 
 namespace BaclucC5Crud\View;
 
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 use function BaclucC5Crud\Lib\collect;
 

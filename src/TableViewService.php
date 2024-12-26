@@ -9,7 +9,7 @@ use BaclucC5Crud\View\TableView\Field;
 use BaclucC5Crud\View\TableView\Row;
 use BaclucC5Crud\View\TableView\TableView;
 use BaclucC5Crud\View\TableView\TableViewFieldConfiguration;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 use function BaclucC5Crud\Lib\collect;
 

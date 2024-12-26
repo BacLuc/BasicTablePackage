@@ -5,7 +5,7 @@ namespace BaclucC5Crud\FieldTypeDetermination;
 use Doctrine\Common\Annotations\AnnotationException;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\ORM\Mapping\Annotation;
-use Tightenco\Collect\Support\Collection;
+use Illuminate\Support\Collection;
 
 use function BaclucC5Crud\Lib\collect;
 
